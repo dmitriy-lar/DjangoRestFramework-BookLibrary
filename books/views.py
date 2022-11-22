@@ -5,6 +5,12 @@ from rest_framework.generics import (
     DestroyAPIView,
     CreateAPIView
 )
+from rest_framework.permissions import (
+    AllowAny,
+    IsAuthenticated,
+    IsAdminUser,
+    IsAuthenticatedOrReadOnly,
+)
 
 from .models import Book
 
@@ -17,6 +23,7 @@ from .serializers import (
 class BookListAPIView(ListAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class BookDetailAPIVIew(RetrieveAPIView):
