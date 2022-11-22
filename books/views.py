@@ -23,6 +23,9 @@ from .serializers import (
 
 from django.db.models import Q
 
+
+""" Books API Views """
+
 class BookListAPIView(ListAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
@@ -49,3 +52,8 @@ class BookDeleteAPIVIew(DestroyAPIView):
 class BookCreateAPIView(CreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookCreateSerializer
+
+
+""" Genres API Views """
+
+""" Authors API Views """
