@@ -2,12 +2,17 @@ from rest_framework.generics import (
     ListAPIView,
     RetrieveAPIView,
     UpdateAPIView,
-    DestroyAPIView
+    DestroyAPIView,
+    CreateAPIView
 )
 
 from .models import Book
 
-from .serializers import BookSerializer
+from .serializers import (
+    BookSerializer,
+    BookCreateSerializer,
+)
+
 
 class BookListAPIView(ListAPIView):
     queryset = Book.objects.all()
@@ -27,3 +32,8 @@ class BookUpdateAPIVIew(UpdateAPIView):
 class BookDeleteAPIVIew(DestroyAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+
+
+class BookCreateAPIView(CreateAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookCreateSerializer

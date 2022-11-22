@@ -14,3 +14,17 @@ class BookSerializer(serializers.ModelSerializer):
             'synopsis',
             'additional_information'
         ]
+
+
+class BookCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields = [
+            'title',
+            'genre',
+            'author',
+            'created',
+            'pages',
+            'synopsis',
+            'additional_information'
+        ]
