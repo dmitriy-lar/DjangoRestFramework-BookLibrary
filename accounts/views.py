@@ -30,14 +30,18 @@ def login_view(request):
         if form.is_valid():
             username = request.POST.get('username', '')
             password = request.POST.get('password', '')
-            client = authenticate(username=username, password=password)
-            if client:
-                login(request, client)
-                messages.success(request, 'You successfully signed in!')
-                return redirect('home_page')
+            user = authenticate(username=username, password=password)
+            if user:
+                login(request, user)
+                return redirect('/')
         else:
             context['form'] = form
     else:
         form = CustomUserAuthenticationForm()
         context['form'] = form
     return render(request, 'accounts/login-page.html', context)
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')
