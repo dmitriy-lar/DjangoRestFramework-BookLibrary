@@ -5,7 +5,7 @@ class Book(models.Model):
     title = models.CharField(max_length=300)
     genre = models.ManyToManyField("Genres")
     author = models.ForeignKey('Author', on_delete=models.CASCADE)
-    created = models.DateField()
+    created = models.CharField(max_length=20)
     pages = models.IntegerField()
     synopsis = models.TextField()
     additional_information = models.TextField()
