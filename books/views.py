@@ -12,6 +12,8 @@ from rest_framework.permissions import (
     IsAuthenticatedOrReadOnly,
 )
 
+from rest_framework.pagination import LimitOffsetPagination, PageNumberPagination
+
 from .models import Book
 
 from .serializers import (
@@ -25,6 +27,7 @@ class BookListAPIView(ListAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     permission_classes = [IsAuthenticated, IsAdminUser]
+    pagination_class = PageNumberPagination
 
 
 
