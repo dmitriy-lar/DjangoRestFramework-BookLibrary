@@ -61,3 +61,8 @@ class BookCreateAPIView(CreateAPIView):
 class AuthorListAPIView(ListAPIView):
     queryset = Author.objects.all()
     serializer_class = AuthorListSerializer
+
+
+class AuthorDetailAPIView(RetrieveAPIView):
+    queryset = Author.objects.all()
+    serializer_class = AuthorListSerializer
