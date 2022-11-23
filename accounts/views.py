@@ -5,10 +5,13 @@ from django.contrib.auth import get_user_model
 
 from .forms import CustomUserCreationForm, CustomUserAuthenticationForm
 
-from .serializers import UserCreateSerializer
+from .serializers import UserCreateSerializer, UserLoginSerializer
 
 from rest_framework.generics import CreateAPIView
-
+from rest_framework.response import Response
+from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
+from rest_framework.views import APIView
+from rest_framework import permissions
 
 User = get_user_model()
 
@@ -61,3 +64,19 @@ def logout_view(request):
 class UserCreateAPIView(CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserCreateSerializer
+
+
+class UserLoginAPIVIew(APIView):
+    permission_classes = [permissions.AllowAny]
+    serializer_class = UserLoginSerializer
+
+    def post(self, request, *args, **kwargs):
+        data = request.data
+        serializer = UserLoginSerializer(data=data)
+        if serializer.is_valid(raise_exception=True):
+            new_data = serializer.data
+            return Response(new_data, status=HTTP_200_OK)
+        else:
+            return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
+
+

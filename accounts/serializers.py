@@ -25,3 +25,23 @@ class UserCreateSerializer(serializers.ModelSerializer):
         user_obj.set_password(password)
         user_obj.save()
         return validated_data
+
+
+class UserLoginSerializer(serializers.ModelSerializer):
+    token = serializers.CharField(allow_blank=True, read_only=True)
+    username = serializers.CharField()
+
+
+    class Meta:
+        model = User
+        fields = [
+            'username',
+            'password',
+            'token'
+        ]
+        extra_kwargs = {'password':
+                                {'write_only': True}
+        }
+
+    def validate(self, data):
+        return data

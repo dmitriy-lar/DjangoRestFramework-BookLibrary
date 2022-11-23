@@ -5,6 +5,7 @@ from .views import (
     login_view, 
     logout_view, 
     UserCreateAPIView,
+    UserLoginAPIVIew
 )
 
 urlpatterns = [
@@ -12,7 +13,8 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
 
-    path('api/register/', UserCreateAPIView.as_view(), name='register-view')
+    path('api/register/', UserCreateAPIView.as_view(), name='register-view'),
+    path('api/login/', UserLoginAPIVIew.as_view(), name='login-view')
 
 
 ]
