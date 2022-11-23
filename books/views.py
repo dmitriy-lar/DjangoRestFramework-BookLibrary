@@ -21,6 +21,7 @@ from .serializers import (
     BookCreateSerializer,
     AuthorListSerializer,
     AuthorCreateSerializer,
+    GenreListSerializer,
 )
 
 from django.db.models import Q
@@ -40,7 +41,7 @@ class BookDetailAPIVIew(RetrieveAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     permission_classes = [IsAuthenticated]
-    
+
 
 class BookUpdateAPIVIew(UpdateAPIView):
     queryset = Book.objects.all()
@@ -61,6 +62,11 @@ class BookCreateAPIView(CreateAPIView):
 
 
 """ Genres API Views """
+class GenreListApiView(ListAPIView):
+    queryset = Genres.objects.all()
+    serializer_class = GenreListSerializer
+
+
 
 """ Authors API Views """
 class AuthorListAPIView(ListAPIView):

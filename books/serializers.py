@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from .models import Book, Genres, Author
 
-
+""" Book Serializers """
 class BookSerializer(serializers.ModelSerializer):
     detail_url = serializers.HyperlinkedIdentityField(
         view_name="books-detail", lookup_field="pk"
@@ -44,6 +44,7 @@ class BookCreateSerializer(serializers.ModelSerializer):
         ]
 
 
+""" Author Serializers """
 class AuthorListSerializer(serializers.ModelSerializer):
     detail_url = serializers.HyperlinkedIdentityField(
         view_name="author-detail", lookup_field="pk"
@@ -75,4 +76,22 @@ class AuthorCreateSerializer(serializers.ModelSerializer):
             'date_of_birth',
             'country_of_birth',
             'additional_information',
+        ]
+
+
+""" Genre Serializers """
+class GenreListSerializer(serializers.ModelSerializer):
+    # detail_url = serializers.HyperlinkedIdentityField(
+    #     view_name="author-detail", lookup_field="pk"
+    # )
+    # delete_url = serializers.HyperlinkedIdentityField(
+    #     view_name="author-delete", lookup_field="pk"
+    # )
+    # edit_url = serializers.HyperlinkedIdentityField(
+    #     view_name="author-edit", lookup_field="pk"
+    # )
+    class Meta:
+        model = Genres
+        fields = [
+            'title',
         ]

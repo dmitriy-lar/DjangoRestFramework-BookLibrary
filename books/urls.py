@@ -1,16 +1,20 @@
 from django.urls import path
 
 from .views import (
+    # Books
     BookListAPIView,
     BookDetailAPIVIew,
     BookUpdateAPIVIew,
     BookDeleteAPIVIew,
     BookCreateAPIView,
+    # Authors
     AuthorListAPIView,
     AuthorDetailAPIView,
     AuthorUpdateAPIVIew,
     AuthorDeleteAPIVIew,
     AuthorCreateAPIView,
+    # Genres
+    GenreListApiView,
 )
 
 urlpatterns = [
@@ -27,5 +31,8 @@ urlpatterns = [
     path('authors/<int:pk>/edit', AuthorUpdateAPIVIew.as_view(), name='author-edit'),
     path('authors/<int:pk>/delete', AuthorDeleteAPIVIew.as_view(), name='author-delete'),
     path('authors/create/', AuthorCreateAPIView.as_view(), name='authors-create'),
+
+    # Genre urls
+    path('genres/', GenreListApiView.as_view(), name='genre-list'),
 
 ]
