@@ -66,3 +66,13 @@ class AuthorListAPIView(ListAPIView):
 class AuthorDetailAPIView(RetrieveAPIView):
     queryset = Author.objects.all()
     serializer_class = AuthorListSerializer
+
+
+class AuthorUpdateAPIVIew(UpdateAPIView):
+    queryset = Author.objects.all()
+    serializer_class = AuthorListSerializer
+
+
+class AuthorDeleteAPIVIew(DestroyAPIView):
+    queryset = Author.objects.all()
+    serializer_class = AuthorListSerializer
