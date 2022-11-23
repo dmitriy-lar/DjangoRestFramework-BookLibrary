@@ -81,17 +81,20 @@ class AuthorCreateSerializer(serializers.ModelSerializer):
 
 """ Genre Serializers """
 class GenreListSerializer(serializers.ModelSerializer):
-    # detail_url = serializers.HyperlinkedIdentityField(
-    #     view_name="author-detail", lookup_field="pk"
-    # )
-    # delete_url = serializers.HyperlinkedIdentityField(
-    #     view_name="author-delete", lookup_field="pk"
-    # )
-    # edit_url = serializers.HyperlinkedIdentityField(
-    #     view_name="author-edit", lookup_field="pk"
-    # )
+    detail_url = serializers.HyperlinkedIdentityField(
+        view_name="genre-detail", lookup_field="pk"
+    )
+    delete_url = serializers.HyperlinkedIdentityField(
+        view_name="genre-delete", lookup_field="pk"
+    )
+    edit_url = serializers.HyperlinkedIdentityField(
+        view_name="genre-edit", lookup_field="pk"
+    )
     class Meta:
         model = Genres
         fields = [
             'title',
+            'detail_url',
+            'edit_url',
+            'delete_url',
         ]
