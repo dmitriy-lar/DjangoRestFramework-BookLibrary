@@ -45,6 +45,15 @@ class BookCreateSerializer(serializers.ModelSerializer):
 
 
 class AuthorListSerializer(serializers.ModelSerializer):
+    detail_url = serializers.HyperlinkedIdentityField(
+        view_name="author-detail", lookup_field="pk"
+    )
+    delete_url = serializers.HyperlinkedIdentityField(
+        view_name="author-delete", lookup_field="pk"
+    )
+    edit_url = serializers.HyperlinkedIdentityField(
+        view_name="author-edit", lookup_field="pk"
+    )
     class Meta:
         model = Author
         fields = [
@@ -52,4 +61,7 @@ class AuthorListSerializer(serializers.ModelSerializer):
             'date_of_birth',
             'country_of_birth',
             'additional_information',
+            'detail_url',
+            'edit_url',
+            'delete_url',
         ]
