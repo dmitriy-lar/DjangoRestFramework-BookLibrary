@@ -67,6 +67,11 @@ class GenreListApiView(ListAPIView):
     serializer_class = GenreListSerializer
 
 
+class GenreDetailAPIView(RetrieveAPIView):
+    queryset = Genres.objects.all()
+    serializer_class = GenreListSerializer
+
+
 
 """ Authors API Views """
 class AuthorListAPIView(ListAPIView):

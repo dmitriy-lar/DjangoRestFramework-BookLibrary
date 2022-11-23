@@ -15,6 +15,7 @@ from .views import (
     AuthorCreateAPIView,
     # Genres
     GenreListApiView,
+    GenreDetailAPIView
 )
 
 urlpatterns = [
@@ -34,5 +35,6 @@ urlpatterns = [
 
     # Genre urls
     path('genres/', GenreListApiView.as_view(), name='genre-list'),
+    path('genres/<int:pk>/', GenreDetailAPIView.as_view(), name='genre-detail'),
 
 ]
