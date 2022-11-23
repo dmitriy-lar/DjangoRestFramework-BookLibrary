@@ -2,6 +2,8 @@ from rest_framework import serializers
 
 from .models import Book, Genres, Author
 
+
+
 """ Book Serializers """
 class BookSerializer(serializers.ModelSerializer):
     detail_url = serializers.HyperlinkedIdentityField(

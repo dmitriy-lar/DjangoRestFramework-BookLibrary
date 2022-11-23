@@ -66,7 +66,7 @@ class BookCreateAPIView(CreateAPIView):
 class GenreListApiView(ListAPIView):
     queryset = Genres.objects.all()
     serializer_class = GenreListSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]  
 
 class GenreDetailAPIView(RetrieveAPIView):
     queryset = Genres.objects.all()

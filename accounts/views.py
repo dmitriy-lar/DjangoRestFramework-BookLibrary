@@ -1,8 +1,17 @@
 from django.shortcuts import render, redirect
 
 from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth import get_user_model
 
 from .forms import CustomUserCreationForm, CustomUserAuthenticationForm
+
+from .serializers import UserCreateSerializer
+
+from rest_framework.generics import CreateAPIView
+
+
+User = get_user_model()
+
 
 def register_view(request):
     context = {}
@@ -45,3 +54,10 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+
+
+# User Api Views
+class UserCreateAPIView(CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserCreateSerializer
