@@ -18,6 +18,7 @@ from .views import (
     GenreDetailAPIView,
     GenreUpdateAPIVIew,
     GenreDeleteAPIVIew,
+    GenreCreateAPIView,
 
 )
 
@@ -41,5 +42,6 @@ urlpatterns = [
     path('genres/<int:pk>/', GenreDetailAPIView.as_view(), name='genre-detail'),
     path('genres/<int:pk>/edit/', GenreUpdateAPIVIew.as_view(), name='genre-edit'),
     path('genres/<int:pk>/delete/', GenreDeleteAPIVIew.as_view(), name='genre-delete'),
+    path('genres/create/', GenreCreateAPIView.as_view(), name='genre-create'),
 
 ]

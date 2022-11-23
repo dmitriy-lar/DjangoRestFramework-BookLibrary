@@ -22,6 +22,7 @@ from .serializers import (
     AuthorListSerializer,
     AuthorCreateSerializer,
     GenreListSerializer,
+    GenreCreateSerializer,
 )
 
 from django.db.models import Q
@@ -83,6 +84,11 @@ class GenreDeleteAPIVIew(DestroyAPIView):
     serializer_class = GenreListSerializer
     # permission_classes = [IsAdminUser]
 
+
+class GenreCreateAPIView(CreateAPIView):
+    queryset = Genres.objects.all()
+    serializer_class = GenreCreateSerializer
+    # permission_classes = [IsAdminUser]
 
 
 """ Authors API Views """

@@ -98,3 +98,11 @@ class GenreListSerializer(serializers.ModelSerializer):
             'edit_url',
             'delete_url',
         ]
+
+
+class GenreCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Genres
+        fields = [
+            'title',
+        ]
