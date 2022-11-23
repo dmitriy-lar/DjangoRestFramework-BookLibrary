@@ -31,7 +31,7 @@ from django.db.models import Q
 class BookListAPIView(ListAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-    permission_classes = [IsAuthenticated, IsAdminUser]
+    permission_classes = [IsAuthenticated]
     pagination_class = PageNumberPagination
 
 
@@ -39,21 +39,25 @@ class BookListAPIView(ListAPIView):
 class BookDetailAPIVIew(RetrieveAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-
+    permission_classes = [IsAuthenticated]
+    
 
 class BookUpdateAPIVIew(UpdateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+    permission_classes = [IsAdminUser]
 
 
 class BookDeleteAPIVIew(DestroyAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+    permission_classes = [IsAdminUser]
 
 
 class BookCreateAPIView(CreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookCreateSerializer
+    permission_classes = [IsAdminUser]
 
 
 """ Genres API Views """
@@ -62,23 +66,29 @@ class BookCreateAPIView(CreateAPIView):
 class AuthorListAPIView(ListAPIView):
     queryset = Author.objects.all()
     serializer_class = AuthorListSerializer
+    permission_classes = [IsAuthenticated]
+    pagination_class = PageNumberPagination
 
 
 class AuthorDetailAPIView(RetrieveAPIView):
     queryset = Author.objects.all()
     serializer_class = AuthorListSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class AuthorUpdateAPIVIew(UpdateAPIView):
     queryset = Author.objects.all()
     serializer_class = AuthorListSerializer
+    permission_classes = [IsAdminUser]
 
 
 class AuthorDeleteAPIVIew(DestroyAPIView):
     queryset = Author.objects.all()
     serializer_class = AuthorListSerializer
+    permission_classes = [IsAdminUser]
 
 
 class AuthorCreateAPIView(CreateAPIView):
     queryset = Author.objects.all()
     serializer_class = AuthorCreateSerializer
+    permission_classes = [IsAdminUser]
