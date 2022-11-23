@@ -65,3 +65,14 @@ class AuthorListSerializer(serializers.ModelSerializer):
             'edit_url',
             'delete_url',
         ]
+
+
+class AuthorCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Author
+        fields = [
+            'name',
+            'date_of_birth',
+            'country_of_birth',
+            'additional_information',
+        ]

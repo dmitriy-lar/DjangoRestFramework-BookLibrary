@@ -10,6 +10,7 @@ from .views import (
     AuthorDetailAPIView,
     AuthorUpdateAPIVIew,
     AuthorDeleteAPIVIew,
+    AuthorCreateAPIView,
 )
 
 urlpatterns = [
@@ -25,5 +26,6 @@ urlpatterns = [
     path('authors/<int:pk>/', AuthorDetailAPIView.as_view(), name='author-detail'),
     path('authors/<int:pk>/edit', AuthorUpdateAPIVIew.as_view(), name='author-edit'),
     path('authors/<int:pk>/delete', AuthorDeleteAPIVIew.as_view(), name='author-delete'),
+    path('authors/create/', AuthorCreateAPIView.as_view(), name='authors-create'),
 
 ]

@@ -20,6 +20,7 @@ from .serializers import (
     BookSerializer,
     BookCreateSerializer,
     AuthorListSerializer,
+    AuthorCreateSerializer,
 )
 
 from django.db.models import Q
@@ -76,3 +77,8 @@ class AuthorUpdateAPIVIew(UpdateAPIView):
 class AuthorDeleteAPIVIew(DestroyAPIView):
     queryset = Author.objects.all()
     serializer_class = AuthorListSerializer
+
+
+class AuthorCreateAPIView(CreateAPIView):
+    queryset = Author.objects.all()
+    serializer_class = AuthorCreateSerializer
