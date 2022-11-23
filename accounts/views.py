@@ -78,5 +78,3 @@ class UserLoginAPIVIew(APIView):
             return Response(new_data, status=HTTP_200_OK)
         else:
             return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
-
-
