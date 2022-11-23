@@ -66,29 +66,29 @@ class BookCreateAPIView(CreateAPIView):
 class GenreListApiView(ListAPIView):
     queryset = Genres.objects.all()
     serializer_class = GenreListSerializer
-
+    permission_classes = [IsAuthenticated]
 
 class GenreDetailAPIView(RetrieveAPIView):
     queryset = Genres.objects.all()
     serializer_class = GenreListSerializer
-
+    permission_classes = [IsAuthenticated]
 
 class GenreUpdateAPIVIew(UpdateAPIView):
     queryset = Genres.objects.all()
     serializer_class = GenreListSerializer
-    # permission_classes = [IsAdminUser]
+    permission_classes = [IsAdminUser]
 
 
 class GenreDeleteAPIVIew(DestroyAPIView):
     queryset = Genres.objects.all()
     serializer_class = GenreListSerializer
-    # permission_classes = [IsAdminUser]
+    permission_classes = [IsAdminUser]
 
 
 class GenreCreateAPIView(CreateAPIView):
     queryset = Genres.objects.all()
     serializer_class = GenreCreateSerializer
-    # permission_classes = [IsAdminUser]
+    permission_classes = [IsAdminUser]
 
 
 """ Authors API Views """
