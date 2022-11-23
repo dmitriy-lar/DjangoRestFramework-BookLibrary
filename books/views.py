@@ -72,6 +72,18 @@ class GenreDetailAPIView(RetrieveAPIView):
     serializer_class = GenreListSerializer
 
 
+class GenreUpdateAPIVIew(UpdateAPIView):
+    queryset = Genres.objects.all()
+    serializer_class = GenreListSerializer
+    # permission_classes = [IsAdminUser]
+
+
+class GenreDeleteAPIVIew(DestroyAPIView):
+    queryset = Genres.objects.all()
+    serializer_class = GenreListSerializer
+    # permission_classes = [IsAdminUser]
+
+
 
 """ Authors API Views """
 class AuthorListAPIView(ListAPIView):
