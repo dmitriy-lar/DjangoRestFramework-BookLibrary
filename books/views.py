@@ -14,11 +14,12 @@ from rest_framework.permissions import (
 
 from rest_framework.pagination import LimitOffsetPagination, PageNumberPagination
 
-from .models import Book
+from .models import Book, Genres, Author
 
 from .serializers import (
     BookSerializer,
     BookCreateSerializer,
+    AuthorListSerializer,
 )
 
 from django.db.models import Q
@@ -57,3 +58,6 @@ class BookCreateAPIView(CreateAPIView):
 """ Genres API Views """
 
 """ Authors API Views """
+class AuthorListAPIView(ListAPIView):
+    queryset = Author.objects.all()
+    serializer_class = AuthorListSerializer
